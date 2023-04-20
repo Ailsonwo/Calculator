@@ -529,6 +529,11 @@ extension CalculatorViewController{
     
     @objc func pointButtonActionUpInside(){
         pointButton.backgroundColor = .darkGray
+        if(displayLabel.text?.hasSuffix(".") == true){ return }
+        if(equalWasLastAction){
+            displayLabel.text = "0"
+            equalWasLastAction = false
+        }
         if(displayLabel.text?.contains(".") == true){ return }
         
         displayLabel.text?.append(".")
